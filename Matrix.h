@@ -35,6 +35,9 @@ struct Matrix {
     // Matrix equality operator
     bool operator==(const Matrix& B) const;
 
+    // Matrix Scaling
+    friend Matrix operator*(double scalar, const Matrix& A);
+
     // Stream insertion operator
     friend std::ostream& operator<<(std::ostream& os, const Matrix& A);
 

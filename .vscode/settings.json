@@ -1,0 +1,11 @@
+{
+    "C_Cpp.default.compilerPath": "/usr/bin/g++-12",
+    "files.associations": {
+        "ostream": "cpp",
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "ranges": "cpp",
+        "span": "cpp"
+    }
+}

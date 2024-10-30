@@ -2,7 +2,7 @@
 
 #include "../Matrix.h"
 #include "../Vec.h"
-#include "../gaussianElimination.h"
+#include "../GaussianElimination.h"
 
 TEST(GaussianEliminationTest, NoSolution) {
     Matrix A(2, 2);
@@ -16,7 +16,7 @@ TEST(GaussianEliminationTest, NoSolution) {
     b[1] = 2.0;
 
     Vec ans(2);
-    int result = guassianElimination(A, b, ans);
+    int result = gaussianElimination(A, b, ans);
 
     EXPECT_EQ(result, 0);
 }
@@ -33,7 +33,7 @@ TEST(GaussianEliminationTest, OneSolution) {
     b[1] = 2.0;
 
     Vec ans(2);
-    int result = guassianElimination(A, b, ans);
+    int result = gaussianElimination(A, b, ans);
 
     EXPECT_EQ(result, 1);
     EXPECT_DOUBLE_EQ(ans[0], 0.0);
@@ -52,7 +52,7 @@ TEST(GaussianEliminationTest, InfiniteSolutions) {
     b[1] = 2.0;
 
     Vec ans(2);
-    int result = guassianElimination(A, b, ans);
+    int result = gaussianElimination(A, b, ans);
 
     EXPECT_EQ(result, 2);
 }

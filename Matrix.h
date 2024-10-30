@@ -48,6 +48,7 @@ struct Matrix {
     double operator[](std::tuple<int, int> rc) const {
         return data[std::get<0>(rc)][std::get<1>(rc)];
     }
+
 };
 
 // Transpose function

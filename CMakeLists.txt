@@ -14,6 +14,7 @@ add_library(ScientificComputingLib
     GivensRotations.cpp
     Matrix.cpp
     Vec.cpp
+    GaussianElimination.cpp
 )
 
 

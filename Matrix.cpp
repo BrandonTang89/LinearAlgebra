@@ -114,6 +114,16 @@ Vec Matrix::operator*(const Vec v) const {
     return result;
 }
 
+Matrix Matrix::transpose() const {
+    Matrix result(W, H);
+    for (int i = 0; i < H; ++i) {
+        for (int j = 0; j < W; ++j) {
+            result.data[j][i] = data[i][j];
+        }
+    }
+    return result;
+}
+
 // Matrix stream insertion operator
 std::ostream& operator<<(std::ostream& os, const Matrix& A) {
     os << "Matrix of size " << A.H << " x " << A.W << std::endl;
@@ -138,6 +148,7 @@ Matrix operator*(double c, const Matrix& A) {
     }
     return result;
 }
+
 
 // Transpose function
 Matrix transpose(const Matrix& A) {

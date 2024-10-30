@@ -41,6 +41,9 @@ struct Matrix {
     // Stream insertion operator
     friend std::ostream& operator<<(std::ostream& os, const Matrix& A);
 
+    // Matrix Transpose
+    Matrix transpose() const;
+
     // C++23 multi-subscripts operator[]
     double& operator[](std::tuple<int, int> rc){
         return data[std::get<0>(rc)][std::get<1>(rc)];

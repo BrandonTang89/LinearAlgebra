@@ -23,9 +23,9 @@ std::ostream& operator<<(std::ostream& os, const Vec& v) {
 
 // Transpose function
 Matrix Vec::transpose() const {
-    Matrix result(N, 1);
+    Matrix result(1, N);
     for (int i = 0; i < N; ++i) {
-        result.data[i][0] = data[i];
+        result[{0, i}] = data[i];
     }
     return result;
 }

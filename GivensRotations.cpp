@@ -4,6 +4,8 @@
 
 #include "Matrix.h"
 #include "Vec.h"
+#include "GivensRotations.h"
+
 Matrix getQ(const Matrix& A, int m, int n) {  // must have 1 <= m < M and 0 <= n
     const int M = A.H;
     const int N = A.W;

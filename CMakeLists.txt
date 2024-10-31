@@ -15,6 +15,7 @@ add_library(ScientificComputingLib
     Matrix.cpp
     Vec.cpp
     GaussianElimination.cpp
+    LUFactorisation.cpp
 )
 
 

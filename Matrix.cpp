@@ -196,3 +196,13 @@ bool isUpperTriangular(const Matrix& A) {  // check if the matrix is upper trian
     return true;
 }
 
+bool isLowerTriangular(const Matrix& A) {  // check if the matrix is lower triangular
+    for (int i = 0; i < A.H; i++) {
+        for (int j = i + 1; j < A.W; j++) {
+            if (!isCloseTo(A.data[i][j], 0)) {
+                return false;
+            }
+        }
+    }
+    return true;
+}

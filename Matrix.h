@@ -60,5 +60,6 @@ Matrix identity(int n);
 
 bool isOrthogonal(const Matrix& Q);
 bool isUpperTriangular(const Matrix& A);
+bool isLowerTriangular(const Matrix& A);
 
 #endif // MATRIX_H

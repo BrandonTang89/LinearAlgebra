@@ -15,6 +15,7 @@ struct Matrix {
     // Constructors
     explicit Matrix(const Vec& v);
     Matrix(int h, int w);
+    Matrix(); // Zero size matrix...
     Matrix(const Matrix& A);
     Matrix(Matrix&& A) noexcept;
 

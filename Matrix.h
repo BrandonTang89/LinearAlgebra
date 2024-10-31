@@ -15,6 +15,7 @@ struct Matrix {
     // Constructors
     explicit Matrix(const Vec& v);
     Matrix(int h, int w);
+    Matrix(); // Zero size matrix...
     Matrix(const Matrix& A);
     Matrix(Matrix&& A) noexcept;
 
@@ -60,5 +61,6 @@ Matrix identity(int n);
 
 bool isOrthogonal(const Matrix& Q);
 bool isUpperTriangular(const Matrix& A);
+bool isLowerTriangular(const Matrix& A);
 
 #endif // MATRIX_H

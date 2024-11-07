@@ -30,9 +30,6 @@ bool LUFactorisation(const Matrix& A, Matrix& L, Matrix& U) {
                 for (int k = 0; k < j; ++k) {
                     L[{i, j}] -= L[{i, k}] * U[{k, j}];
                 }
-
-                using namespace std;
-                cout << U[{j, j}] << endl;
                 if (std::abs(U[{j, j}]) < EPS) {
                     return false; // Matrix is singular
                 }

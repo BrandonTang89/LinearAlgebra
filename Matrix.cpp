@@ -125,6 +125,15 @@ Matrix Matrix::transpose() const {
     return result;
 }
 
+// Get the diagonal of the matrix
+std::vector<double> Matrix::diag() const {
+    std::vector<double> diag(std::min(H, W));
+    for (int i = 0; i < diag.size(); i++) {
+        diag[i] = data[i][i];
+    }
+    return diag;
+}
+
 // Matrix stream insertion operator
 std::ostream& operator<<(std::ostream& os, const Matrix& A) {
     os << "Matrix of size " << A.H << " x " << A.W << std::endl;

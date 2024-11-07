@@ -32,5 +32,9 @@ int main() {
     std::cout << "Solution to Ax = b using Conjugate Gradient: " << x << std::endl;
     std::cout << "Residual: " << (A * x - b).norm() << std::endl;
 
+    // std::cout << "A = " << A << std::endl;
+    Vec x2 = conjugateGradientPreconditionedDiagonal(A, b, 1000, 1e-16);
+    std::cout << "Solution to Ax = b using Preconditioned Conjugate Gradient: " << x2 << std::endl;
+    std::cout << "Residual: " << (A * x2 - b).norm() << std::endl;
     return 0;
 }

@@ -53,6 +53,7 @@ struct Matrix {
         return data[std::get<0>(rc)][std::get<1>(rc)];
     }
 
+    std::vector<double> diag() const;
 };
 
 // Transpose function

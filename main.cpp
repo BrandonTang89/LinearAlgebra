@@ -3,9 +3,9 @@
 #include <iostream>
 #include <random>
 
-#include "ConjugateGradient.h"
-#include "Matrix.h"
-#include "Vec.h"
+// #include "ConjugateGradient.h"
+// #include "Matrix.h"
+// #include "Vec.h"
 #include "gillespie.h"
 
 // int main() {
@@ -45,29 +45,43 @@
 int main() {
     using namespace matplot;
 
+    double A0 = 1000;
     double k1 = 0.1;
     Reaction dup = {
         [=](std::vector<double> reactants, double volume) { return k1 * reactants[0]; },
-        {2}};
+        {1}};
 
     double k2 = 0.01;
     Reaction decay = {
         [=](std::vector<double> reactants, double volume) { return k2 * reactants[0]; },
         {-1}};
 
-    std::vector<Reaction> reactions = {dup, decay};
-    std::vector<double> reactants = {1000};
-    auto [times, trajectory] = glllespie(20, reactants, reactions, 1.0);
+    std::vector<Reaction> reactions = {decay, dup};
+    std::vector<double> reactants = {A0};
+    auto [times, trajectory] = glllespie(50, reactants, reactions, 1.0);
     double nTimePoints = trajectory.size();
     std::vector<double> a_amt(nTimePoints);
     for (int i = 0; i < nTimePoints; i++) {
         a_amt[i] = trajectory[i][0];
     }
 
+    auto compMean = [=](double t) {
+        return A0 * exp((k1 - k2) * t);
+    };
+
+    std::vector<double> meanVal(nTimePoints);
+    for (int i = 0; i < nTimePoints; i++) {
+        meanVal[i] = compMean(times[i]);
+    }
+
     title("k1 = 0.1, k2 = 0.01");
     xlabel("Time");
     ylabel("Amount of A");
     plot(times, a_amt, "-o");
+    hold(on);
+    plot(times, meanVal, "--r");
+
+    ::matplot::legend({"Simulated A", "Calculated mean"});
     show();
     return 0;
 }

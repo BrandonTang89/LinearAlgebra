@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_package(Matplot++ REQUIRED)
+
 # Add the library
 add_library(ScientificComputingLib
     ConjugateGradient.cpp
@@ -16,12 +18,13 @@ add_library(ScientificComputingLib
     Vec.cpp
     GaussianElimination.cpp
     LUFactorisation.cpp
+    gillespie.cpp
 )
 
 
 # Add the main executable
 add_executable(main main.cpp)
-target_link_libraries(main PRIVATE ScientificComputingLib)
+target_link_libraries(main PRIVATE Matplot++::matplot ScientificComputingLib)
 
 # Add Google Test
 enable_testing()

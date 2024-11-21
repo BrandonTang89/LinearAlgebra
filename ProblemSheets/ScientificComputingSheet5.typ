@@ -140,3 +140,5 @@ int main() {
 #align(center)[
     #image("sheet5_k1_lt_k2.png", width: 100%)
 ]
+
+From the graphs, we can see that indeed the mean seems to be correctly computed. The variance does seem to decrease to $0$ when $k_1 < k_2$ as $t -> infinity$.

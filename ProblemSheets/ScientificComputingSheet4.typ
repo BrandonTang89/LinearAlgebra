@@ -89,7 +89,6 @@ Vec conjugateGradientPreconditionedDiagonal(const Matrix& A, const Vec& b, int m
         return result;
     };
 
-    Vec v(b.N, 1.0);
     return conjugateGradientPreconditioned(A, b, maxIter, tol, multMInv);
 }
 ```)
